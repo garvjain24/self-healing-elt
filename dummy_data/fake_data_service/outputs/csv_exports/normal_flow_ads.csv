@@ -1,0 +1,16 @@
+date,campaign_id,platform,impressions,clicks,spend,conversions,cpc,requires_human_review
+2024-01-01,cmp_brand_001,google,49561,4603,1611.05,533,0.35,False
+2024-01-01,cmp_retarget_002,meta,41658,1718,2491.1,229,1.45,False
+2024-01-01,cmp_prospecting_003,google,36450,1729,4823.91,35,2.79,False
+2024-01-01,cmp_lookalike_004,meta,37138,4126,1320.32,300,0.32,False
+2024-01-01,cmp_seasonal_005,google,23976,1304,1382.24,84,1.06,False
+2024-01-02,cmp_brand_001,google,54068,2583,3848.67,253,1.49,False
+2024-01-02,cmp_retarget_002,meta,46778,4583,10357.58,409,2.26,False
+2024-01-02,cmp_prospecting_003,google,31684,2013,966.24,563,0.48,False
+2024-01-02,cmp_lookalike_004,meta,39495,4442,3686.86,600,0.83,False
+2024-01-02,cmp_seasonal_005,google,24133,1118,2168.92,260,1.94,False
+2024-01-03,cmp_brand_001,google,55539,3192,5873.28,493,1.84,False
+2024-01-03,cmp_retarget_002,meta,48330,4109,1766.87,1105,0.43,False
+2024-01-03,cmp_prospecting_003,google,34152,2056,6825.92,173,3.32,False
+2024-01-03,cmp_lookalike_004,meta,43428,2516,8151.84,607,3.24,False
+2024-01-03,cmp_seasonal_005,google,22510,1556,1524.88,18,0.98,False

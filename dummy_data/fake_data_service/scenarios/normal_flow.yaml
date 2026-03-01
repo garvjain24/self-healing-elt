@@ -1,0 +1,13 @@
+scenario_id: "normal_flow"
+description: "Baseline scenario — all generators active, no failures injected. Used to verify clean data generation."
+duration_days: 7
+start_date: "2024-01-01"
+
+generators:
+  ads: true
+  analytics: true
+  crm: true
+  finance: true
+  manual: false
+
+failure_config: []

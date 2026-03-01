@@ -1,0 +1,49 @@
+scenario_id: "attribution_delay"
+description: "CRM leads arrive late, simulating attribution delay between ad click and lead creation. Ads have missing rows on day 2."
+duration_days: 7
+start_date: "2024-01-01"
+
+generators:
+  ads: true
+  analytics: true
+  crm: true
+  finance: true
+  manual: false
+
+failure_config:
+  - generator: crm
+    failure_type: late_data
+    lag_days: 5
+    severity: MEDIUM
+    day_offset: 1
+    expected_agent_action: auto_retry
+
+  - generator: crm
+    failure_type: late_data
+    lag_days: 3
+    severity: MEDIUM
+    day_offset: 3
+    expected_agent_action: auto_retry
+
+  - generator: ads
+    failure_type: missing_rows
+    percentage: 0.2
+    severity: LOW
+    day_offset: 2
+    expected_agent_action: auto_retry
+
+  - generator: analytics
+    failure_type: null_fields
+    target_field: conversion_events
+    percentage: 0.5
+    severity: HIGH
+    day_offset: 4
+    expected_agent_action: flag_and_continue
+
+  - generator: finance
+    failure_type: schema_drift
+    drift_action: add
+    target_field: attribution_window
+    severity: MEDIUM
+    day_offset: 5
+    expected_agent_action: flag_and_continue

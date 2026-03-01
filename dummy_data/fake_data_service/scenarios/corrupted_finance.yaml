@@ -1,0 +1,48 @@
+scenario_id: "corrupted_finance"
+description: "Financial KPIs are inconsistent — ROAS is positive but profit is negative. Designed to trigger human escalation."
+duration_days: 7
+start_date: "2024-01-01"
+
+generators:
+  ads: true
+  analytics: true
+  crm: true
+  finance: true
+  manual: false
+
+failure_config:
+  - generator: finance
+    failure_type: logic_break
+    target_field: roas
+    severity: CRITICAL
+    day_offset: 3
+    expected_agent_action: human_escalation
+
+  - generator: finance
+    failure_type: wrong_dtype
+    target_field: total_spend
+    severity: HIGH
+    day_offset: 4
+    expected_agent_action: auto_fix
+
+  - generator: ads
+    failure_type: missing_rows
+    percentage: 0.2
+    severity: LOW
+    day_offset: 1
+    expected_agent_action: auto_retry
+
+  - generator: ads
+    failure_type: duplicate_rows
+    percentage: 0.3
+    severity: MEDIUM
+    day_offset: 5
+    expected_agent_action: auto_fix
+
+  - generator: finance
+    failure_type: column_rename
+    target_field: profit
+    new_name: net_income
+    severity: HIGH
+    day_offset: 6
+    expected_agent_action: flag_and_continue
